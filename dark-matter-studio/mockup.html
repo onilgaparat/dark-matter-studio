@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Matter Studio — Style Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ivory: #F4F3F1;
+  --blush: #DECEBF;
+  --terracotta: #B57B66;
+  --evergreen: #68756D;
+  --charcoal: #2c2c2a;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+
+  /* Cosmic palette pulled from the image */
+  --cosmic-deep:    #0d0618;
+  --cosmic-purple:  #2d0d5e;
+  --cosmic-violet:  #7b35c1;
+  --cosmic-glow:    #c87dff;
+  --cosmic-gold:    #e8a84a;
+  --cosmic-green:   #b5e853;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: #f0ede8; color: var(--charcoal); overflow-x: hidden; }
+
+/* ── SECTION LABELS ── */
+.mockup-label {
+  background: var(--charcoal); color: #fff;
+  font-family: var(--sans); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+  padding: .5rem 1.5rem; text-align: center;
+}
+.mockup-note {
+  background: #e8e5df; color: #666;
+  font-family: var(--sans); font-size: .7rem; letter-spacing: .06em;
+  padding: .6rem 1.5rem; text-align: center; border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+/* ══════════════════════════════════════════
+   OPTION A — DARK COSMIC HERO (image bg)
+══════════════════════════════════════════ */
+.option-a {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 4rem 4rem;
+  background: var(--cosmic-deep);
+  overflow: hidden;
+}
+
+/* Simulated cosmic web layers using CSS radial gradients */
+.option-a::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 65% 45%, rgba(180,80,255,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 35% at 20% 70%, rgba(100,30,180,.25) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 25% at 80% 20%, rgba(232,168,74,.08) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(45,13,94,.6) 0%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Filament lines via SVG background pattern */
+.option-a::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(135deg, rgba(180,80,255,.06) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(232,168,74,.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.a-canvas-wrap { position: absolute; inset: 0; opacity: .7; }
+#canvasA { width: 100%; height: 100%; }
+
+.a-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center;
+}
+
+.a-eyebrow {
+  font-size: .6rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--cosmic-glow); margin-bottom: 1.5rem; opacity: .8;
+}
+.a-dark { display: block; font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; color: #fff; line-height: .9; letter-spacing: -.01em; }
+.a-matter { display: block; font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; line-height: .9; letter-spacing: -.01em;
+  background: linear-gradient(120deg, var(--cosmic-glow), var(--cosmic-gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.a-studio { display: block; font-family: var(--serif); font-size: 1.1rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,.4); letter-spacing: .3em; margin: .8rem 0 2rem; }
+
+.a-tagline {
+  font-family: var(--serif); font-size: clamp(.95rem,1.6vw,1.3rem); font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,.65); line-height: 1.7; max-width: 480px;
+}
+.a-tagline em { font-style: normal; color: var(--cosmic-green); }
+
+.a-chips { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 2rem; }
+.a-chip {
+  font-size: .55rem; letter-spacing: .15em; text-transform: uppercase;
+  padding: .35rem .9rem; border: 1px solid; font-weight: 400;
+}
+.a-chip-1 { border-color: var(--cosmic-violet); color: var(--cosmic-glow); background: rgba(123,53,193,.2); }
+.a-chip-2 { border-color: var(--cosmic-gold); color: var(--cosmic-gold); background: rgba(232,168,74,.1); }
+.a-chip-3 { border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.45); }
+.a-chip-4 { border-color: rgba(181,232,83,.3); color: var(--cosmic-green); background: rgba(181,232,83,.08); }
+
+.a-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.a-photo-frame {
+  width: 75%; aspect-ratio: 3/4;
+  border: 1px solid rgba(180,80,255,.3);
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(180,80,255,.15), 0 0 80px rgba(232,168,74,.08);
+}
+.a-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; filter: brightness(.9) contrast(1.05); }
+.a-photo-tag { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.15); padding: .25rem .7rem; }
+
+.a-bar {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 3rem auto 0; width: 100%;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 2rem;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap;
+}
+.a-desc { font-size: .82rem; color: rgba(255,255,255,.4); max-width: 520px; line-height: 1.85; font-weight: 300; }
+.a-desc strong { color: rgba(255,255,255,.75); font-weight: 400; }
+.a-founder { font-size: .72rem; letter-spacing: .06em; color: rgba(255,255,255,.3); margin-top: .7rem; }
+
+/* ══════════════════════════════════════════
+   OPTION B — ANIMATED CANVAS HERO
+══════════════════════════════════════════ */
+.option-b {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 4rem 4rem;
+  background: var(--cosmic-deep);
+  overflow: hidden;
+}
+#canvasB { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.b-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center;
+}
+/* Reuse Option A text styles, slightly tweaked */
+.b-eyebrow { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 1.5rem; }
+.b-dark { display: block; font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; color: #fff; line-height: .9; }
+.b-matter { display: block; font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; line-height: .9;
+  background: linear-gradient(120deg, #fff 0%, rgba(255,255,255,.6) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.b-studio { display: block; font-family: var(--serif); font-size: 1.1rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,.35); letter-spacing: .3em; margin: .8rem 0 2rem; }
+.b-tagline { font-family: var(--serif); font-size: clamp(.95rem,1.6vw,1.3rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,.6); line-height: 1.7; max-width: 480px; }
+.b-tagline em { font-style: normal; color: var(--cosmic-gold); }
+
+.b-chips { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 2rem; }
+.b-chip { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; padding: .35rem .9rem; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.5); font-weight: 400; }
+
+.b-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.b-photo-frame { width: 75%; aspect-ratio: 3/4; border: 1px solid rgba(255,255,255,.15); overflow: hidden; }
+.b-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; filter: grayscale(20%) brightness(.9); }
+.b-photo-tag { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.35); border: 1px solid rgba(255,255,255,.1); padding: .25rem .7rem; }
+
+.b-bar {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 3rem auto 0; width: 100%;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 2rem;
+  display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.b-desc { font-size: .82rem; color: rgba(255,255,255,.35); max-width: 520px; line-height: 1.85; font-weight: 300; }
+.b-desc strong { color: rgba(255,255,255,.65); font-weight: 400; }
+.b-founder { font-size: .72rem; letter-spacing: .06em; color: rgba(255,255,255,.25); margin-top: .7rem; }
+
+/* ══════════════════════════════════════════
+   OPTION C — LIGHT SITE + COSMIC ACCENTS
+══════════════════════════════════════════ */
+.option-c {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 4rem 4rem;
+  background: var(--ivory);
+  overflow: hidden;
+}
+
+/* Subtle cosmic glow in background corner */
+.option-c::before {
+  content: '';
+  position: absolute; top: -10%; right: -5%;
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(123,53,193,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.c-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center;
+}
+.c-eyebrow { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: #9a9490; margin-bottom: 1.5rem; }
+.c-dark { display: block; font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; color: #1e1e1c; line-height: .9; }
+.c-matter { display: block; font-family: var(--serif); font-size: clamp(4rem,9vw,8rem); font-weight: 300; line-height: .9;
+  background: linear-gradient(120deg, var(--cosmic-violet), var(--cosmic-glow));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.c-studio { display: block; font-family: var(--serif); font-size: 1.1rem; font-weight: 300; font-style: italic; color: rgba(0,0,0,.3); letter-spacing: .3em; margin: .8rem 0 2rem; }
+.c-tagline { font-family: var(--serif); font-size: clamp(.95rem,1.6vw,1.3rem); font-weight: 300; font-style: italic; color: #5a5650; line-height: 1.7; max-width: 480px; }
+.c-tagline em { font-style: normal; color: var(--cosmic-violet); font-weight: 400; }
+
+.c-chips { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: 2rem; }
+.c-chip { font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; padding: .35rem .9rem; border: 1px solid; font-weight: 400; }
+.c-chip-1 { background: var(--evergreen); border-color: var(--evergreen); color: #fff; }
+.c-chip-2 { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+.c-chip-3 { border-color: rgba(44,44,42,.15); color: #5a5650; }
+.c-chip-4 { background: var(--cosmic-violet); border-color: var(--cosmic-violet); color: #fff; }
+
+.c-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.c-photo-frame {
+  width: 75%; aspect-ratio: 3/4;
+  border: 1px solid rgba(44,44,42,.12);
+  overflow: hidden; background: var(--blush);
+  box-shadow: 0 0 60px rgba(123,53,193,.08);
+}
+.c-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.c-photo-tags { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+.c-photo-tag { font-size: .55rem; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .8rem; border: 1px solid rgba(44,44,42,.15); color: #5a5650; font-weight: 400; }
+.c-photo-tag-filled { background: #1e1e1c; border-color: #1e1e1c; color: #F4F3F1; }
+
+/* Cosmic accent bar below photo */
+.c-cosmic-bar {
+  width: 75%; height: 2px; margin-top: -.5rem;
+  background: linear-gradient(90deg, var(--cosmic-violet), var(--cosmic-glow), var(--cosmic-gold));
+  opacity: .4;
+}
+
+.c-bar {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 3rem auto 0; width: 100%;
+  border-top: 1px solid rgba(44,44,42,.1);
+  padding-top: 2rem;
+  display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.c-desc { font-size: .82rem; color: #5a5650; max-width: 520px; line-height: 1.85; font-weight: 300; }
+.c-desc strong { color: #1e1e1c; font-weight: 500; }
+.c-founder { font-size: .72rem; letter-spacing: .06em; color: #9a9490; margin-top: .7rem; }
+</style>
+</head>
+<body>
+
+<!-- ─── OPTION A ─────────────────────────────── -->
+<div class="mockup-label">Option A — Full Dark Cosmic Hero (image-inspired gradients)</div>
+<div class="mockup-note">Most dramatic. Full dark takeover. Cosmic purple/gold palette.</div>
+<section class="option-a">
+  <canvas id="canvasA" class="a-canvas-wrap"></canvas>
+  <div class="a-content">
+    <div>
+      <div class="a-eyebrow">Creative & Product Strategy Studio</div>
+      <span class="a-dark">DARK</span>
+      <span class="a-matter">MATTER</span>
+      <span class="a-studio">— Studio —</span>
+      <p class="a-tagline">We work at the intersection of medical research and AI — helping scientists tell stories <em>as bold as their breakthroughs.</em></p>
+      <div class="a-chips">
+        <span class="a-chip a-chip-1">AI & Biotech</span>
+        <span class="a-chip a-chip-2">Oncology</span>
+        <span class="a-chip a-chip-3">Longevity</span>
+        <span class="a-chip a-chip-4">Health & Wellness</span>
+      </div>
+    </div>
+    <div class="a-photo-col">
+      <div class="a-photo-frame">
+        <img src="headshot.jpeg" alt="Tara Paglino">
+      </div>
+      <span class="a-photo-tag">Tara Paglino · Founder</span>
+    </div>
+  </div>
+  <div class="a-bar">
+    <div>
+      <p class="a-desc">The invisible forces that hold great science brands together — <strong>that's dark matter.</strong> We partner with biotech and AI health companies on both sides of the equation.</p>
+      <p class="a-founder">Founded by Tara Paglino · M.S. Bioinformatics · 10+ years in AI & life sciences</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OPTION B ─────────────────────────────── -->
+<div class="mockup-label">Option B — Animated Particle Web (live canvas)</div>
+<div class="mockup-note">Interactive. The filament network is generated live — moves gently. Clean dark with minimal color.</div>
+<section class="option-b">
+  <canvas id="canvasB"></canvas>
+  <div class="b-content">
+    <div>
+      <div class="b-eyebrow">Creative & Product Strategy Studio</div>
+      <span class="b-dark">DARK</span>
+      <span class="b-matter">MATTER</span>
+      <span class="b-studio">— Studio —</span>
+      <p class="b-tagline">We work at the intersection of medical research and AI — helping scientists tell stories <em>as bold as their breakthroughs.</em></p>
+      <div class="b-chips">
+        <span class="b-chip">AI & Biotech</span>
+        <span class="b-chip">Oncology</span>
+        <span class="b-chip">Longevity</span>
+        <span class="b-chip">Health & Wellness</span>
+      </div>
+    </div>
+    <div class="b-photo-col">
+      <div class="b-photo-frame">
+        <img src="headshot.jpeg" alt="Tara Paglino">
+      </div>
+      <span class="b-photo-tag">Tara Paglino · Founder</span>
+    </div>
+  </div>
+  <div class="b-bar">
+    <div>
+      <p class="b-desc">The invisible forces that hold great science brands together — <strong>that's dark matter.</strong> We partner with biotech and AI health companies on both sides of the equation.</p>
+      <p class="b-founder">Founded by Tara Paglino · M.S. Bioinformatics · 10+ years in AI & life sciences</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OPTION C ─────────────────────────────── -->
+<div class="mockup-label">Option C — Light Site + Cosmic Accents (most conservative)</div>
+<div class="mockup-note">Preserves the current earthy feel. Cosmic purple used as a selective accent — "MATTER" gradient, tagline, Health & Wellness chip, photo glow.</div>
+<section class="option-c">
+  <div class="c-content">
+    <div>
+      <div class="c-eyebrow">Creative & Product Strategy Studio</div>
+      <span class="c-dark">DARK</span>
+      <span class="c-matter">MATTER</span>
+      <span class="c-studio">— Studio —</span>
+      <p class="c-tagline">We work at the intersection of medical research and AI — helping scientists tell stories <em>as bold as their breakthroughs.</em></p>
+      <div class="c-chips">
+        <span class="c-chip c-chip-1">AI & Biotech</span>
+        <span class="c-chip c-chip-2">Oncology</span>
+        <span class="c-chip c-chip-3">Longevity</span>
+        <span class="c-chip c-chip-4">Health & Wellness</span>
+      </div>
+    </div>
+    <div class="c-photo-col">
+      <div class="c-photo-frame">
+        <img src="headshot.jpeg" alt="Tara Paglino">
+      </div>
+      <div class="c-cosmic-bar"></div>
+      <div class="c-photo-tags">
+        <span class="c-photo-tag">Tara Paglino</span>
+        <span class="c-photo-tag c-photo-tag-filled">Founder</span>
+      </div>
+    </div>
+  </div>
+  <div class="c-bar">
+    <div>
+      <p class="c-desc">The invisible forces that hold great science brands together — <strong>that's dark matter.</strong> We partner with biotech and AI health companies on both sides of the equation.</p>
+      <p class="c-founder">Founded by Tara Paglino · M.S. Bioinformatics · 10+ years in AI & life sciences</p>
+    </div>
+  </div>
+</section>
+
+<script>
+// ─── Canvas A: Static cosmic glow nodes ───────────────────
+(function() {
+  const canvas = document.getElementById('canvasA');
+  const ctx = canvas.getContext('2d');
+  let nodes = [];
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function initNodes() {
+    nodes = [];
+    const count = 60;
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + .3,
+        vx: (Math.random() - .5) * .15,
+        vy: (Math.random() - .5) * .15,
+        hue: Math.random() < .7 ? 280 : 38,
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Filament connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 180) {
+          const alpha = (1 - dist / 180) * .25;
+          const hue = (nodes[i].hue + nodes[j].hue) / 2;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = `hsla(${hue}, 80%, 70%, ${alpha})`;
+          ctx.lineWidth = .5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Nodes
+    for (const n of nodes) {
+      // Glow
+      const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 8);
+      grd.addColorStop(0, `hsla(${n.hue}, 90%, 80%, .5)`);
+      grd.addColorStop(1, `hsla(${n.hue}, 90%, 80%, 0)`);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r * 8, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+      // Core
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${n.hue}, 90%, 90%, .9)`;
+      ctx.fill();
+
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+      if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  initNodes();
+  draw();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+})();
+
+// ─── Canvas B: Denser animated web, white/gold tones ──────
+(function() {
+  const canvas = document.getElementById('canvasB');
+  const ctx = canvas.getContext('2d');
+  let nodes = [];
+  let mouse = { x: -9999, y: -9999 };
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function initNodes() {
+    nodes = [];
+    const count = 90;
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + .3,
+        vx: (Math.random() - .5) * .2,
+        vy: (Math.random() - .5) * .2,
+        baseVx: (Math.random() - .5) * .2,
+        baseVy: (Math.random() - .5) * .2,
+        gold: Math.random() < .25,
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Subtle center glow
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, canvas.width * .5);
+    grd.addColorStop(0, 'rgba(100,40,180,.12)');
+    grd.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 160) {
+          const alpha = (1 - dist / 160) * .18;
+          const color = (nodes[i].gold || nodes[j].gold)
+            ? `rgba(232,168,74,${alpha})`
+            : `rgba(200,180,255,${alpha})`;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = .6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Mouse connections
+    for (const n of nodes) {
+      const dx = n.x - mouse.x, dy = n.y - mouse.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 120) {
+        const alpha = (1 - dist / 120) * .4;
+        ctx.beginPath();
+        ctx.moveTo(n.x, n.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = `rgba(255,220,100,${alpha})`;
+        ctx.lineWidth = .8;
+        ctx.stroke();
+      }
+    }
+
+    // Nodes
+    for (const n of nodes) {
+      const color = n.gold ? [232, 168, 74] : [200, 180, 255];
+      const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 6);
+      grd.addColorStop(0, `rgba(${color},0.6)`);
+      grd.addColorStop(1, `rgba(${color},0)`);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r * 6, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = n.gold ? 'rgba(255,210,120,.95)' : 'rgba(220,200,255,.9)';
+      ctx.fill();
+
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+      if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  initNodes();
+  draw();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+})();
+</script>
+</body>
+</html>
