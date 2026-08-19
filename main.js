@@ -32,7 +32,7 @@ document.querySelectorAll('.reveal, .line-reveal').forEach(el => revealObs.obser
 
 // Contact form (Google Apps Script)
 // Replace APPS_SCRIPT_URL below with the deployment URL from script.google.com
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFE4zK6TxbAn48FqWVmcqT2ak7Wof-qRR8DeV0qEqh2psTH_PmsjFxQuKCwNLGJfeZ/exec';
 
 const cf = document.getElementById('cf');
 if (cf) {
