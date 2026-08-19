@@ -269,9 +269,6 @@
     </div>
     <div class="reveal reveal-delay-1">
       <form class="cf" id="cf">
-        <input type="hidden" name="access_key" value="6840a201-7172-42d0-92d8-25eb9e120f48">
-        <input type="hidden" name="subject" value="New inquiry — Dark Matter Studio">
-        <input type="hidden" name="from_name" value="Dark Matter Studio Website">
         <div class="cf-group"><label class="cf-label">Your name</label><input class="cf-input" type="text" name="name" placeholder="Jane Smith" required></div>
         <div class="cf-group"><label class="cf-label">Email</label><input class="cf-input" type="email" name="email" placeholder="jane@company.com" required></div>
         <div class="cf-group"><label class="cf-label">What do you need?</label>
@@ -289,6 +286,7 @@
         <div class="cf-group"><label class="cf-label">Tell me about your project</label><textarea class="cf-textarea" name="message" placeholder="What are you building? What's the challenge?"></textarea></div>
         <button type="submit" class="cf-btn">Send it &#8594;</button>
         <p class="cf-note">Typically responds within 24 hours.</p>
+        <p id="cfSuccess" style="display:none; margin-top:1rem; font-size:.8rem; color:var(--evergreen); letter-spacing:.05em;">Message sent — I'll be in touch soon!</p>
       </form>
     </div>
   </div>
